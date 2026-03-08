@@ -1,9 +1,13 @@
 import express from "express"
 import healthcheckroutes from "./routes/healthcheck.routes.js";
 import authRouter from "./routes/auth.routes.js"
+import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(express.json());
+
+app.use(cookieParser());
+
 app.get('/',(req,res)=>{
     res.send("This is the home page");
     
@@ -11,10 +15,10 @@ app.get('/',(req,res)=>{
 
 
 //route for the healthcheck of the system
-app.use("/api/vi/healthcheck",healthcheckroutes);
+app.use("/api/v1/healthcheck",healthcheckroutes);
 
 //routes for registering user
-app.use("/api/vi/auth",authRouter)
+app.use("/api/v1/auth",authRouter)
 
 
 app.get('/name',(req,res)=>{

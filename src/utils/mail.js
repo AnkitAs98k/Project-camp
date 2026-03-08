@@ -31,7 +31,7 @@ const sendEmail = async (options) => {
         }
     });
 
-    // ✅ generate mail content
+    
     const emailHtml = mailGenerator.generate(options.mailgenContent);
     const emailText = mailGenerator.generatePlaintext(options.mailgenContent);
 

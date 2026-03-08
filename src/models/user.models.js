@@ -11,7 +11,7 @@ const userSchema = new Schema(
         },
         username:{
             type:String,
-            require:true,
+            required:true,
             unique:true,
             lowercase:true,
             trim:true,
@@ -19,11 +19,11 @@ const userSchema = new Schema(
         },
         fullname:{
              type:String,
-            require:true,  
+            required:true,  
         },
         email:{
              type:String,
-            require:true,
+            required:true,
             unique:true,
             lowercase:true,
             trim:true,
@@ -31,7 +31,7 @@ const userSchema = new Schema(
         },
         password:{
             type: String,
-            require: true
+            required: true
         },
         isEmailVerified:{
             type:Boolean,
@@ -63,7 +63,7 @@ const userSchema = new Schema(
     userSchema.methods.isPasswordCorrect = async function(password){
     return await bcrypt.compare(password, this.password);
 };
-
+/*
     userSchema.methods.generateAccessToken=function()
     {
         return jwt.sign(
@@ -97,6 +97,36 @@ userSchema.methods.generateRefreshToken=function()
             process.env.REFRESH_TOKEN_EXPIRY
         )
     }
+*/
+
+userSchema.methods.generateAccessToken = function () {
+    return jwt.sign(
+        {
+            _id: this._id,
+            email: this.email,
+            username: this.username
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+        }
+    );
+};
+
+
+userSchema.methods.generateRefreshToken = function () {
+    return jwt.sign(
+        {
+            _id: this._id,
+            email: this.email
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        {
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+        }
+    );
+};
+
 
     userSchema.methods.generateTemporaryToken = function()
     {
