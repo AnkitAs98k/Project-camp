@@ -1,15 +1,23 @@
+
+//this is a predefind roles
 export const userRoleEnum = {
     admin :"admin",
     project_admin :"project_admin",
     member : "member"
 }
 
-export const AvailableUser = Object.values(userRoleEnum);
 
-export const taskEnum ={
+//this is to convert object into arrat
+export const AvailableUserRole = Object.values(userRoleEnum);
+
+
+//this is all status defined for the task
+export const taskStatusEnum ={
     todo:"todo",
     in_progress:"in_progress",
-    done:""
+    done:"done"
 }
 
-export const AvailableTask = Object.values.taskEnum(taskEnum);
+
+//this is to convert object into array
+export const AvailableTaskStatus = Object.values(taskStatusEnum);

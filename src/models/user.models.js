@@ -66,7 +66,7 @@ const userSchema = new Schema(
 /*
     userSchema.methods.generateAccessToken=function()
     {
-        return jwt.sign(
+        return jwt.sign(        
             //payload will be defined 1st
             {
                 _id : this._id,
