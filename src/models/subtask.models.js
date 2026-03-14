@@ -1,13 +1,13 @@
 import mongoose,{Schema} from "mongoose";
 
-const noteSchema = new mongoose.Schema({
+const subTaskSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
     },
-    NotesOf:{
+    subTaskoff:{
         type:Schema.type.ObjectId,
-        ref:"Project"
+        ref:"Task"
     },
     descrption:{
         type:String,
@@ -21,4 +21,4 @@ const noteSchema = new mongoose.Schema({
 },{timestamps:true})
 
 
-export const Notes = mongoose.model("Notes", subTaskSchema)
+export const SubTask = mongoose.model("SubTask", subTaskSchema)

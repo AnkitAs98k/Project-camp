@@ -1,16 +1,16 @@
 import mongoose,{Schema} from "mongoose";
-import { AvailableUserRole,AvailableTaskStatus, userRoleEnum } from "../utils/constants";
-import { User } from "./user.models";
-import { Projectroject } from "./project.models.js";
+import { AvailableUserRole,AvailableTaskStatus, userRoleEnum } from "../utils/constants.js";
+import { User } from "./user.models.js";
+import { Project } from "./project.models.js";
 
 const projectMemberSchema = new mongoose.Schema({
     user:{
-        type:Schema.type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:"User",
         unique:true
     },
     project:{
-        type:Schema.type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:"project",
         unique:true
     },

@@ -18,4 +18,4 @@ const projectSchema  = new mongoose.Schema({
     }
 },{timestamps:true})
 
-export const Project = mongoose.model("project",projectSchema)
+export const Project = mongoose.model("Project",projectSchema)
