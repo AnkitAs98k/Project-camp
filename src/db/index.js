@@ -8,8 +8,8 @@ const connectDB = async()=>{
         console.log("Succesfully connected");
 
          mongoose.connection.once("open", () => {
-            console.log("📌 DB Name:", mongoose.connection.name);
-            console.log("📌 Host:", mongoose.connection.host);
+            console.log("DB Name:", mongoose.connection.name);
+            console.log("Host:", mongoose.connection.host);
         });
 
     }catch{

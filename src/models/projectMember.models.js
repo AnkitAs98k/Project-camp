@@ -14,11 +14,11 @@ const projectMemberSchema = new mongoose.Schema({
         ref:"project",
         unique:true
     },
-    roles:{
-        type:String,
-        enum:AvailableUserRole,
-        userRoleEnum:userRoleEnum.member
-    }
+    role: {
+          type: String,
+          enum: AvailableUserRole,
+          default: userRoleEnum.member,
+        },
 })
 
 export const ProjectMember  = mongoose.model("projectMember",projectMemberSchema)

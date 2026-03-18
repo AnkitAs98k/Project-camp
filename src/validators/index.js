@@ -27,6 +27,12 @@ const userRegsisterValidator = () => {
     ]
 }
 
+const userLoginValidator = () => {
+  return [
+    body("email").optional().isEmail().withMessage("Email is invalid"),
+    body("password").notEmpty().withMessage("Password is required"),
+  ];
+};
 
 const createProjectValidator = () => {
   return [
@@ -52,4 +58,4 @@ const addMembertoProjectValidator = () => {
 };
 
 
-export {userRegsisterValidator, addMembertoProjectValidator,createProjectValidator}
+export {userRegsisterValidator, addMembertoProjectValidator,createProjectValidator,userLoginValidator}
